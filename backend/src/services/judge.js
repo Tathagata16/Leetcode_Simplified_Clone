@@ -112,10 +112,10 @@ async function runTestCase(code, input, expectedOutput) {
       signal: controller.signal,
       body: JSON.stringify({
         language: "cpp",
-        version: "10.2.0",
+        version: "*",//changed to * from version 10.2.something
         files: [{ name: "main.cpp", content: code }],
         // Fix 3: Empty string stdin causes issues — send a space if empty
-        stdin: input || " ",
+        stdin: input || "",
         run_timeout: TIMEOUT_MS,
         compile_timeout: 10000,
       }),

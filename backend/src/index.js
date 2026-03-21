@@ -19,6 +19,10 @@ app.use(cors({
 }));
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
+
 // Rate limit all API calls (100 req / 15 min per IP)
 app.use('/api', rateLimit({
   windowMs: 15 * 60 * 1000,
